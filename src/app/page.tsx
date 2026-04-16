@@ -10,6 +10,7 @@ import { Nav } from "@/components/nav";
 import { ParadigmSection } from "@/components/paradigm-section";
 import { PricingSection } from "@/components/pricing-section";
 import { ProblemSection } from "@/components/problem-section";
+import { SiteFooter } from "@/components/site-footer";
 import { TeamSection } from "@/components/team-section";
 import { SystemGrid } from "@/components/system-grid";
 import { TelemetrySection } from "@/components/telemetry-section";
@@ -34,6 +35,7 @@ export default function Home() {
         <TeamSection />
         <PricingSection />
         <FooterCta />
+        <SiteFooter />
       </main>
     </>
   );

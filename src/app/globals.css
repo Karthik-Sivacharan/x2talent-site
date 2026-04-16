@@ -540,6 +540,14 @@ nav {
     font-size: clamp(3rem, 7vw, 8rem);
 }
 
+/* ── Site footer ──────────────────────────────────── */
+
+.footer-icon:hover {
+    background: var(--clay) !important;
+    color: var(--bg) !important;
+    border-color: var(--clay) !important;
+}
+
 /* ── Reveal ───────────────────────────────────────── */
 
 .reveal {
