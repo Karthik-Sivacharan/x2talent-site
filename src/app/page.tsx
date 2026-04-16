@@ -1,9 +1,40 @@
+"use client";
+
+import { CanvasBackground } from "@/components/canvas-background";
+import { FooterCta } from "@/components/footer-cta";
+import { HeroSection } from "@/components/hero-section";
+import { Loader } from "@/components/loader";
+import { MarqueeBand } from "@/components/marquee-band";
+import { MethodologySection } from "@/components/methodology-section";
+import { Nav } from "@/components/nav";
+import { ParadigmSection } from "@/components/paradigm-section";
+import { PricingSection } from "@/components/pricing-section";
+import { ProblemSection } from "@/components/problem-section";
+import { TeamSection } from "@/components/team-section";
+import { SystemGrid } from "@/components/system-grid";
+import { TelemetrySection } from "@/components/telemetry-section";
+import { useGsapInteractions } from "@/hooks/use-gsap-interactions";
+
 export default function Home() {
+  const initInteractions = useGsapInteractions();
+
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <>
+      <Loader onComplete={initInteractions} />
+      <CanvasBackground />
+      <SystemGrid />
+      <Nav />
+      <main>
+        <HeroSection />
+        <MarqueeBand />
+        <ProblemSection />
+        <MethodologySection />
+        <TelemetrySection />
+        <ParadigmSection />
+        <TeamSection />
+        <PricingSection />
+        <FooterCta />
+      </main>
+    </>
   );
 }
