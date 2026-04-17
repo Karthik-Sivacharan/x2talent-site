@@ -22,7 +22,7 @@ export function FooterCta() {
         <h2>Let&rsquo;s Talk.</h2>
         <p
           className="panel-desc"
-          style={{ fontSize: "1.2rem", textAlign: "center" }}
+          style={{ fontSize: "clamp(0.95rem, 2vw, 1.2rem)", textAlign: "center" }}
         >
           Book a hiring chat — 30 minutes. We&rsquo;ll talk about your team,
           what you&rsquo;re building, and whether we&rsquo;re the right fit. No

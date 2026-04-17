@@ -251,6 +251,7 @@ nav {
 
 .btn-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -547,6 +548,18 @@ nav {
     color: var(--bg) !important;
     border-color: var(--clay) !important;
 }
+.footer-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 
 /* ── Reveal ───────────────────────────────────────── */
 
@@ -569,3 +582,143 @@ nav {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--clay); }
+
+/* ── Mobile responsive ────────────────────────────── */
+
+@media (max-width: 767px) {
+    :root {
+        --container-padding: 6vw;
+    }
+
+    /* Nav */
+    nav {
+        padding: 1.25rem var(--container-padding);
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    .nav-status .meta-label {
+        display: none;
+    }
+
+    /* Sections */
+    section {
+        padding: 8vh var(--container-padding);
+        min-height: auto;
+    }
+
+    /* Hero */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        padding-top: 14vh;
+        padding-bottom: 4vh;
+        gap: 1.5rem;
+    }
+    .hero-content {
+        gap: 1.5rem;
+    }
+    .hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .monumental-vertical {
+        display: none;
+    }
+
+    /* Buttons */
+    .btn-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Section header */
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    .section-header h2 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+
+    /* Panels / Grid-3 */
+    .grid-3 > * {
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
+    }
+    .panel-title {
+        font-size: 1.25rem;
+    }
+
+    /* Method section */
+    .method-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .method-sticky {
+        position: static;
+    }
+    .method-sticky .display-text {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+    }
+    .method-steps {
+        gap: 4rem;
+    }
+
+    /* Stats */
+    .stat-num {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+    }
+
+    /* Marquee */
+    .marquee-container {
+        padding: 1.25rem 0;
+    }
+    .marquee {
+        gap: 2.5rem;
+    }
+    .marquee-item {
+        font-size: 1.5rem;
+    }
+
+    /* Tiers / FAQ */
+    .tier-card {
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+    }
+
+    /* Team */
+    .team-card {
+        border-radius: 24px;
+    }
+    .team-card-info {
+        padding: 1.5rem;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+        min-height: 60vh;
+    }
+    .footer-cta h2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    /* Site footer */
+    .footer-top-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
