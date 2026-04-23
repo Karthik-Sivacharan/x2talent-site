@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <Loader onComplete={initInteractions} />
-      <CanvasBackground />
+      {/* <CanvasBackground /> */}
       <SystemGrid />
       <Nav />
       <main>

@@ -1,4 +1,5 @@
 import { StarMotif } from "@/components/star-motif";
+import { XParticleCloud } from "@/components/x-particle-cloud";
 
 const BOOK_URL = "https://cal.com/carlwheatley/book-a-hiring-chat";
 
@@ -6,6 +7,8 @@ export function HeroSection() {
   return (
     <section className="hero">
       <div className="monumental-vertical">Design</div>
+
+      <XParticleCloud />
 
       <div className="hero-content reveal">
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
