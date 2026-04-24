@@ -636,9 +636,11 @@ nav {
         gap: 1.5rem;
     }
     .x-particle-cloud {
-        width: 80%;
-        height: 60%;
-        right: -10%;
+        width: 60%;
+        height: 50%;
+        right: -5%;
+        top: 15%;
+        transform: none;
         opacity: 0.35;
     }
     .hero-content {
