@@ -11,7 +11,6 @@ import * as THREE from "three";
 
 const NUM_POINTS = 8000;
 const SPREAD = 0.2;
-const LINE_RANGE = 4.0;
 const Z_DEPTH = 1.5;
 
 const vertexShader = `
@@ -27,7 +26,7 @@ const vertexShader = `
     gl_PointSize = uPointSize * (8.0 / depth);
 
     // Alpha fades with distance — closer particles are more opaque
-    vAlpha = smoothstep(12.0, 3.0, depth) * 0.95;
+    vAlpha = smoothstep(14.0, 3.0, depth);
   }
 `;
 
@@ -47,19 +46,18 @@ const fragmentShader = `
 
 function generateXPoints(): Float32Array {
   const positions = new Float32Array(NUM_POINTS * 3);
+  const size = 1.4;
 
   for (let i = 0; i < NUM_POINTS; i++) {
     const isLine1 = Math.random() > 0.5;
-    const t = (Math.random() - 0.5) * LINE_RANGE;
+    const t = (Math.random() - 0.5) * 2.0;
 
     if (isLine1) {
-      // Diagonal: top-left → bottom-right
-      positions[i * 3] = t + (Math.random() - 0.5) * SPREAD;
-      positions[i * 3 + 1] = t + (Math.random() - 0.5) * SPREAD;
+      positions[i * 3] = t * size + (Math.random() - 0.5) * SPREAD;
+      positions[i * 3 + 1] = t * size + (Math.random() - 0.5) * SPREAD;
     } else {
-      // Diagonal: top-right → bottom-left
-      positions[i * 3] = t + (Math.random() - 0.5) * SPREAD;
-      positions[i * 3 + 1] = -t + (Math.random() - 0.5) * SPREAD;
+      positions[i * 3] = t * size + (Math.random() - 0.5) * SPREAD;
+      positions[i * 3 + 1] = -t * size + (Math.random() - 0.5) * SPREAD;
     }
 
     positions[i * 3 + 2] = (Math.random() - 0.5) * Z_DEPTH;
@@ -79,7 +77,7 @@ export function XParticleCloud() {
 
     // OrthographicCamera-like feel: far back, narrow FOV
     const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-    camera.position.z = 8;
+    camera.position.z = 10;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -99,7 +97,7 @@ export function XParticleCloud() {
       fragmentShader,
       uniforms: {
         uPointSize: { value: dpr * 2.5 },
-        uColor: { value: new THREE.Color(0.08, 0.14, 0.09) }, // rich dark green
+        uColor: { value: new THREE.Color(0.0, 0.0, 0.0) }, // pure black
       },
       transparent: true,
       depthWrite: false,
