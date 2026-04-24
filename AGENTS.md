@@ -1,18 +1,13 @@
-<!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
 
-# Website Reverse-Engineer Template
-
-## What This Is
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. The Next.js + shadcn/ui + Tailwind v4 base is pre-scaffolded — just run `/clone-website <url1> [<url2> ...]`.
+# X2Talent Landing Page
 
 ## Tech Stack
 - **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
 - **UI:** shadcn/ui (Radix primitives, Tailwind CSS v4, `cn()` utility)
-- **Icons:** Lucide React (default — will be replaced/supplemented by extracted SVGs)
+- **Animation:** Three.js (X particle cloud), GSAP + ScrollTrigger (scroll reveals, parallax, marquee)
 - **Styling:** Tailwind CSS v4 with oklch design tokens
 - **Deployment:** Vercel
 
@@ -31,35 +26,32 @@ A reusable template for reverse-engineering any website into a clean, modern Nex
 - Responsive: mobile-first
 
 ## Design Principles
-- **Pixel-perfect emulation** — match the target's spacing, colors, typography exactly
-- **No personal aesthetic changes during emulation phase** — match 1:1 first, customize later
-- **Real content** — use actual text and assets from the target site, not placeholders
 - **Beauty-first** — every pixel matters
+- **Real content** — no placeholder text
+- **Brand consistency** — use design tokens (`--clay`, `--bg`, `--acid`, etc.)
 
 ## Project Structure
 ```
 src/
-  app/              # Next.js routes
+  app/              # Next.js routes & global styles
   components/       # React components
     ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons as React components
-  lib/
-    utils.ts        # cn() utility (shadcn)
+  lib/utils.ts      # cn() utility (shadcn)
   types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
+  hooks/            # Custom React hooks (GSAP interactions)
 public/
-  images/           # Downloaded images from target site
-  videos/           # Downloaded videos from target site
-  seo/              # Favicons, OG images, webmanifest
+  images/           # Static images
+  seo/              # Favicons, OG images
 docs/
-  research/         # Inspection output (design tokens, components, layout)
-  design-references/ # Screenshots and visual references
-scripts/            # Asset download scripts
+  research/         # Animation research & design references
 ```
 
-## MOST IMPORTANT NOTES
-- When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
-- After editing `AGENTS.md`, run `bash scripts/sync-agent-rules.sh` to regenerate platform-specific instruction files.
-- After editing `.claude/skills/clone-website/SKILL.md`, run `node scripts/sync-skills.mjs` to regenerate the skill for all platforms.
+## Key Components
+- `hero-section.tsx` — Hero with X particle cloud animation
+- `x-particle-cloud.tsx` — Three.js WebGL particle cloud forming an "X" shape
+- `canvas-background.tsx` — Wavy wireframe background (currently hidden)
+- `use-gsap-interactions.ts` — GSAP scroll animations, parallax, marquee
+- `loader.tsx` — Page loader with GSAP progress animation
 
-@docs/research/INSPECTION_GUIDE.md
+## Important Notes
+- When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end.
